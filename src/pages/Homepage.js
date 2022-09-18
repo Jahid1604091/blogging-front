@@ -1,7 +1,6 @@
 import React from 'react'
 import Slider from '../components/Slider'
 import { Container, Row, Col } from 'react-bootstrap'
-import ImageGallery from '../components/ImageGallery'
 import Blog from '../components/Blog/Blog'
 import Sidebar from '../components/Blog/Sidebar'
 import {AiOutlineReload} from 'react-icons/ai'
@@ -23,7 +22,7 @@ const Homepage = () => {
                 </Row>
             </Container>
 
-            <ImageGallery />
+         
         </>
     )
 }

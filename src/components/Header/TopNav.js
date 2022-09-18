@@ -21,8 +21,8 @@ const TopNav = () => {
   return (
     <Wrapper>
       <ul className='d-flex justify-content-center align-items-center'>
-        <li className='d-none d-lg-block'>Hello nice people, welcome to my blog</li>
-        <li className='d-none d-md-block'>contact@juliblog.com</li>
+        <li className='d-none d-lg-block'>Hello people, welcome to tech blog</li>
+        <li className='d-none d-md-block'>contact@techblog.com</li>
         <li>
           <form onSubmit={handleSearchSubmit}>
             <InputGroup className="search-box" >
@@ -35,7 +35,6 @@ const TopNav = () => {
               />
               <button type='submit'><AiOutlineSearch /></button>
             </InputGroup>
-
           </form>
         </li>
         <li className='d-none d-md-block'>

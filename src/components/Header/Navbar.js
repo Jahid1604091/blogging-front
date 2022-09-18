@@ -1,21 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import {HiMenu} from 'react-icons/hi'
+import { HiMenu } from 'react-icons/hi'
+import { Link } from 'react-router-dom'
 const Navbar = () => {
+  let isAuthenticated = false
   return (
     <Wrapper>
-    
+
       <nav className="navbar navbar-expand-lg p-0">
         <div className="container-fluid">
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className=""><HiMenu size={25}/></span>
+            <span className=""><HiMenu size={25} /></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="menu navbar-nav mb-2 mb-lg-0 ">
               <li><a href="/" className="menu-link">Home</a></li>
               <li className="has-dropdown">
                 <a href="#" className="menu-link"
-                >Products
+                >Categories
                   <span className="arrow"></span>
                 </a>
                 <ul className="submenu">
@@ -74,37 +76,50 @@ const Navbar = () => {
                 </ul>
               </li>
               <li className="has-dropdown">
-                <a href="#" className="menu-link"
-                >Solutions
-                  <span className="arrow"></span>
-                </a>
-                <ul className="submenu">
-                  <li><a href="#" className="menu-link">Machine Monitoring</a></li>
-                  <li><a href="#" className="menu-link">Environment Monitoring</a></li>
-                  <li><a href="#" className="menu-link">Energy & Utility Monitoring</a></li>
-                  <li><a href="#" className="menu-link">Plant Control & Monitoring Systems</a></li>
+                {isAuthenticated ? <>
+                  <a href="#" className="menu-link"
+                  >My Profile
+                    <span className="arrow"></span>
+                  </a>
+                  <ul className="submenu">
+                    <li><a href="#" className="menu-link">Machine Monitoring</a></li>
+                    <li><a href="#" className="menu-link">Environment Monitoring</a></li>
+                    <li><a href="#" className="menu-link">Energy & Utility Monitoring</a></li>
+                    <li><a href="#" className="menu-link">Plant Control & Monitoring Systems</a></li>
 
-                </ul>
+                  </ul>
+                </> :
+                  <>
+                    <a href="#" className="menu-link"
+                    >Account
+                      <span className="arrow"></span>
+                    </a>
+                    <ul className="submenu">
+                      <li><Link to="/login" className="menu-link">Login</Link></li>
+                      <li><Link to="/register" className="menu-link">Register</Link></li>
+                    </ul>
+                  </>
+                }
               </li>
 
               <li className="has-dropdown">
                 <a href="#" className="menu-link"
-                >Our Team
+                >Blogs
                   <span className="arrow"></span>
                 </a>
                 <ul className="submenu">
-                  <li><a href="#" className="menu-link">Advisor</a></li>
-                  <li><a href="#" className="menu-link">The Credsense Team</a></li>
+                  <li><a href="#" className="menu-link">All Blogs</a></li>
+                  {isAuthenticated && <li><a href="#" className="menu-link">My Blogs</a></li>}
                 </ul>
               </li>
-             
+
             </ul>
 
           </div>
         </div>
       </nav>
 
-   
+
     </Wrapper>
   )
 }
@@ -165,7 +180,7 @@ header {
   white-space: nowrap;
   padding: 1.5em 0;
   min-width: 16em;
-  border-left: 2px solid grey;
+  border-left: 2px solid var(--clr-red-light);
   /* hide submenus */
   opacity: 0;
   transform: scaleY(0);
